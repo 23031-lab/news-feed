@@ -1,0 +1,989 @@
+23
+
+activity_main
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_main"
+    android:paddingTop="50dp">
+
+    <!-- Заголовок -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Список дел"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_text"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="30dp"/>
+
+    <!-- Категория: Работа -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardWork"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/card_work">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="💼 Работа"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnWork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Перейти"
+                android:backgroundTint="@android:color/white"
+                android:textColor="@color/card_work"
+                style="@style/NavButtonStyle"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Категория: Личное -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPersonal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/card_personal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="❤️ Личное"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnPersonal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Перейти"
+                android:backgroundTint="@android:color/white"
+                android:textColor="@color/card_personal"
+                style="@style/NavButtonStyle"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Категория: Покупки -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardShopping"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/card_shopping">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🛒 Покупки"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnShopping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Перейти"
+                android:backgroundTint="@android:color/white"
+                android:textColor="@color/card_shopping"
+                style="@style/NavButtonStyle"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Категория: Учёба -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardStudy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/card_study">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📚 Учёба"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnStudy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Перейти"
+                android:backgroundTint="@android:color/white"
+                android:textColor="@color/card_study"
+                style="@style/NavButtonStyle"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
+ 
+activity_main2
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_task"
+    android:paddingTop="50dp">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary_color"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <Button
+        android:id="@+id/btnAddTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+ Добавить новую задачу"
+        android:textSize="16sp"
+        android:padding="14dp"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/primary_color"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Нет задач.\nНажмите '+' чтобы добавить"
+        android:textSize="18sp"
+        android:textColor="@android:color/darker_gray"
+        android:gravity="center"
+        android:padding="40dp"
+        android:visibility="gone"/>
+
+    <ListView
+        android:id="@+id/listViewTasks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"/>
+
+</LinearLayout>
+ 
+activity_main3
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_task"
+    android:paddingTop="50dp">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary_color"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Название задачи"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <EditText
+        android:id="@+id/etTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите название"
+        android:padding="12dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@android:drawable/editbox_background"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Описание"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <EditText
+        android:id="@+id/etTaskDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите описание"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:minLines="3"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Отмена"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@android:color/darker_gray"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Сохранить"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/primary_color"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+ 
+activity_main4
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_task"
+    android:paddingTop="50dp"
+    >
+
+    <!-- Панель инструментов (Toolbar) -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary_color"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <!-- Подпись "Название задачи" -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Название задачи"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        />
+
+    <!-- Поле для ввода названия -->
+    <EditText
+        android:id="@+id/etTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите название"
+        android:padding="12dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:drawable/editbox_background"/>
+
+    <!-- Подпись "Описание" -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Описание"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <!-- Поле для ввода описания -->
+    <EditText
+        android:id="@+id/etTaskDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите описание"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:minLines="3"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <!-- Кнопки Сохранить и Отмена -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Отмена"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@android:color/darker_gray"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Сохранить"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/primary_color"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+ 
+MainActivity
+package com.example.a23;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity {
+
+    private CardView cardWork, cardPersonal, cardShopping, cardStudy;
+    private Button btnWork, btnPersonal, btnShopping, btnStudy;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        cardWork = findViewById(R.id.cardWork);
+        cardPersonal = findViewById(R.id.cardPersonal);
+        cardShopping = findViewById(R.id.cardShopping);
+        cardStudy = findViewById(R.id.cardStudy);
+
+        btnWork = findViewById(R.id.btnWork);
+        btnPersonal = findViewById(R.id.btnPersonal);
+        btnShopping = findViewById(R.id.btnShopping);
+        btnStudy = findViewById(R.id.btnStudy);
+
+        setupClickListeners();
+    }
+
+    private void setupClickListeners() {
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                String category = "";
+
+                if (v.getId() == R.id.cardWork || v.getId() == R.id.btnWork) {
+                    category = "Работа";
+                } else if (v.getId() == R.id.cardPersonal || v.getId() == R.id.btnPersonal) {
+                    category = "Личное";
+                } else if (v.getId() == R.id.cardShopping || v.getId() == R.id.btnShopping) {
+                    category = "Покупки";
+                } else if (v.getId() == R.id.cardStudy || v.getId() == R.id.btnStudy) {
+                    category = "Учёба";
+                }
+
+                intent.putExtra("category", category);
+                startActivity(intent);
+            }
+        };
+
+        cardWork.setOnClickListener(listener);
+        cardPersonal.setOnClickListener(listener);
+        cardShopping.setOnClickListener(listener);
+        cardStudy.setOnClickListener(listener);
+
+        btnWork.setOnClickListener(listener);
+        btnPersonal.setOnClickListener(listener);
+        btnShopping.setOnClickListener(listener);
+        btnStudy.setOnClickListener(listener);
+    }
+}
+
+
+MainActivity2
+package com.example.a23;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
+public class MainActivity2 extends AppCompatActivity {
+
+    private ListView listViewTasks;
+    private TextView tvEmpty;
+    private ArrayList<Task> tasks;
+    private TaskAdapter adapter;
+    private String category;
+    private static final int REQUEST_ADD_TASK = 1;
+    private static final int REQUEST_EDIT_TASK = 2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+
+        category = getIntent().getStringExtra("category");
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(category);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        listViewTasks = findViewById(R.id.listViewTasks);
+        tvEmpty = findViewById(R.id.tvEmpty);
+
+        loadTasks();
+
+        adapter = new TaskAdapter(this, tasks);
+        listViewTasks.setAdapter(adapter);
+
+        registerForContextMenu(listViewTasks);
+
+        Button btnAddTask = findViewById(R.id.btnAddTask);
+        btnAddTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
+                startActivityForResult(intent, REQUEST_ADD_TASK);
+            }
+        });
+
+        listViewTasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Task task = tasks.get(position);
+                task.setCompleted(!task.isCompleted());
+                adapter.notifyDataSetChanged();
+                saveTasks();
+            }
+        });
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        menu.setHeaderTitle("Действия с задачей");
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        int position = info.position;
+
+        if (item.getItemId() == R.id.menu_edit) {
+            // Редактирование задачи
+            Intent intent = new Intent(MainActivity2.this, MainActivity4.class);
+            intent.putExtra("task_title", tasks.get(position).getTitle());
+            intent.putExtra("task_description", tasks.get(position).getDescription());
+            intent.putExtra("position", position);
+            startActivityForResult(intent, REQUEST_EDIT_TASK);
+            return true;
+        } else if (item.getItemId() == R.id.menu_delete) {
+            // Удаление задачи
+            tasks.remove(position);
+            adapter.notifyDataSetChanged();
+            saveTasks();
+            Toast.makeText(this, "Задача удалена", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onContextItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            if (requestCode == REQUEST_ADD_TASK && data != null) {
+                String title = data.getStringExtra("task_title");
+                String description = data.getStringExtra("task_description");
+                tasks.add(new Task(title, description));
+                adapter.notifyDataSetChanged();
+                saveTasks();
+                Toast.makeText(this, "Задача добавлена", Toast.LENGTH_SHORT).show();
+            } else if (requestCode == REQUEST_EDIT_TASK && data != null) {
+                int position = data.getIntExtra("position", -1);
+                if (position != -1) {
+                    String title = data.getStringExtra("task_title");
+                    String description = data.getStringExtra("task_description");
+                    tasks.get(position).setTitle(title);
+                    tasks.get(position).setDescription(description);
+                    adapter.notifyDataSetChanged();
+                    saveTasks();
+                    Toast.makeText(this, "Задача обновлена", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+        updateEmptyView();
+    }
+
+    private void loadTasks() {
+        SharedPreferences prefs = getSharedPreferences("TodoList", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = prefs.getString("tasks_" + category, "");
+
+        if (!json.isEmpty()) {
+            Type type = new TypeToken<ArrayList<Task>>(){}.getType();
+            tasks = gson.fromJson(json, type);
+        } else {
+            tasks = new ArrayList<>();
+        }
+    }
+
+    private void saveTasks() {
+        SharedPreferences prefs = getSharedPreferences("TodoList", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(tasks);
+        editor.putString("tasks_" + category, json);
+        editor.apply();
+    }
+
+    private void updateEmptyView() {
+        if (tasks.isEmpty()) {
+            tvEmpty.setVisibility(View.VISIBLE);
+            listViewTasks.setVisibility(View.GONE);
+        } else {
+            tvEmpty.setVisibility(View.GONE);
+            listViewTasks.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+}
+
+MainActivity3
+package com.example.a23;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import androidx.appcompat.widget.Toolbar;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity3 extends AppCompatActivity {
+
+    private EditText etTitle, etDescription;
+    private Button btnSave, btnCancel;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main3);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Новая задача");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        etTitle = findViewById(R.id.etTaskTitle);
+        etDescription = findViewById(R.id.etTaskDescription);
+        btnSave = findViewById(R.id.btnSave);
+        btnCancel = findViewById(R.id.btnCancel);
+
+        etTitle.requestFocus();
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String title = etTitle.getText().toString().trim();
+                String description = etDescription.getText().toString().trim();
+
+                if (title.isEmpty()) {
+                    etTitle.setError("Введите название задачи");
+                    return;
+                }
+
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("task_title", title);
+                resultIntent.putExtra("task_description", description);
+                setResult(RESULT_OK, resultIntent);
+                finish();
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(RESULT_CANCELED);
+                finish();
+            }
+        });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+}
+
+
+MainActivity4
+package com.example.a23;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import androidx.appcompat.widget.Toolbar;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity4 extends AppCompatActivity {
+
+    private EditText etTitle, etDescription;
+    private Button btnSave, btnCancel;
+    private int position;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main4);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Редактирование задачи");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        etTitle = findViewById(R.id.etTaskTitle);
+        etDescription = findViewById(R.id.etTaskDescription);
+        btnSave = findViewById(R.id.btnSave);
+        btnCancel = findViewById(R.id.btnCancel);
+
+        String title = getIntent().getStringExtra("task_title");
+        String description = getIntent().getStringExtra("task_description");
+        position = getIntent().getIntExtra("position", -1);
+
+        etTitle.setText(title);
+        etDescription.setText(description);
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String newTitle = etTitle.getText().toString().trim();
+                String newDescription = etDescription.getText().toString().trim();
+
+                if (newTitle.isEmpty()) {
+                    etTitle.setError("Введите название задачи");
+                    return;
+                }
+
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("task_title", newTitle);
+                resultIntent.putExtra("task_description", newDescription);
+                resultIntent.putExtra("position", position);
+                setResult(RESULT_OK, resultIntent);
+                finish();
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(RESULT_CANCELED);
+                finish();
+            }
+        });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+}
+
+
+
+Task
+package com.example.a23;
+
+import java.io.Serializable;
+
+public class Task implements Serializable {
+    private String title;
+    private String description;
+    private boolean isCompleted;
+
+    public Task(String title, String description) {
+        this.title = title;
+        this.description = description;
+        this.isCompleted = false;
+    }
+
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
+    public boolean isCompleted() { return isCompleted; }
+    public void setCompleted(boolean completed) { isCompleted = completed; }
+}
+
+
+TaskAdapter
+
+package com.example.a23;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
+public class TaskAdapter extends BaseAdapter {
+
+    private ArrayList<Task> tasks;
+    private LayoutInflater inflater;
+
+    public TaskAdapter(MainActivity2 context, ArrayList<Task> tasks) {
+        this.tasks = tasks;
+        this.inflater = LayoutInflater.from(context);
+    }
+
+    @Override
+    public int getCount() {
+        return tasks.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return tasks.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder;
+
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.item_task, parent, false);
+            holder = new ViewHolder();
+            holder.tvTitle = convertView.findViewById(R.id.tvTaskTitle);
+            holder.tvDescription = convertView.findViewById(R.id.tvTaskDescription);
+            holder.tvStatus = convertView.findViewById(R.id.tvTaskStatus);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        Task task = tasks.get(position);
+        holder.tvTitle.setText(task.getTitle());
+        holder.tvDescription.setText(task.getDescription());
+
+        if (task.isCompleted()) {
+            holder.tvStatus.setText("✓ Выполнено");
+            holder.tvStatus.setTextColor(0xFF4CAF50);
+            holder.tvTitle.setAlpha(0.6f);
+        } else {
+            holder.tvStatus.setText("○ Не выполнено");
+            holder.tvStatus.setTextColor(0xFF9E9E9E);
+            holder.tvTitle.setAlpha(1f);
+        }
+
+        return convertView;
+    }
+
+    static class ViewHolder {
+        TextView tvTitle;
+        TextView tvDescription;
+        TextView tvStatus;
+    }
+}
+
+
+menu
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ite
+m
+        android:id="@+id/menu_edit"
+        android:title="Редактировать"/>
+    <item
+        android:id="@+id/menu_delete"
+        android:title="Удалить"/>
+</menu>
+
+Theme
+
+<resources>
+    <style name="Theme._23" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent_color</item>
+    </style>
+
+    <style name="NavButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+</resources>
+
+Color 
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_color">#2196F3</color>
+    <color name="primary_text">#219643</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="accent_color">#FF5722</color>
+    <color name="background_main">#F5F5F5</color>
+    <color name="card_work">#4CAF50</color>
+    <color name="card_personal">#E91E63</color>
+    <color name="card_shopping">#FF9800</color>
+    <color name="card_study">#9C27B0</color>
+    <color name="background_task">#5C27B0</color>
+
+</resources>
+
+Build gradle (module app)
+
+implementation("androidx.appcompat:appcompat:1.6.1")
+implementation("com.google.android.material:material:1.9.0")
+implementation("androidx.cardview:cardview:1.0.0")
+implementation("com.google.code.gson:gson:2.10.1")
+
