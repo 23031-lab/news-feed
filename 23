@@ -967,16 +967,17 @@ Theme
 Color 
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary_color">#2196F3</color>
-    <color name="primary_text">#219643</color>
-    <color name="primary_dark">#1976D2</color>
-    <color name="accent_color">#FF5722</color>
-    <color name="background_main">#F5F5F5</color>
+    <color name="primary_color">#ED7530</color>
+    <color name="primary_text">#282525</color>
+    <color name="primary_dark">#599FEB</color>
+    <color name="accent_color">#F87F2F</color>
+    <color name="background_main">#FFFFFF</color>
     <color name="card_work">#4CAF50</color>
     <color name="card_personal">#E91E63</color>
     <color name="card_shopping">#FF9800</color>
     <color name="card_study">#9C27B0</color>
-    <color name="background_task">#5C27B0</color>
+    <color name="background_task">#FFFFFF</color>
+    <color name="listViewTasks">#E26A2E</color>
 
 </resources>
 
