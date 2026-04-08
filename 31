@@ -1,0 +1,225 @@
+ACTIVITY
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Имя"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Введите имя"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Группа"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/etName"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <RadioGroup
+        android:id="@+id/rgGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tvGroup"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbGroup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ИС-31" />
+        <RadioButton
+            android:id="@+id/rbGroup2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ИС-32" />
+        <RadioButton
+            android:id="@+id/rbGroup3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ИС-33" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Возраст"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/rgGroup"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <SeekBar
+        android:id="@+id/sbAge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:max="50"
+        android:progress="18"
+        app:layout_constraintTop_toBottomOf="@id/tvAge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvAgeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="18"
+        app:layout_constraintTop_toBottomOf="@id/sbAge"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvBirthDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Дата рождения"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tvAgeValue"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/etBirthDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="ДД.ММ.ГГГГ"
+        android:inputType="date"
+        app:layout_constraintTop_toBottomOf="@id/tvBirthDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+main
+package com.example.a31;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+
+
+public class MainActivity extends AppCompatActivity {
+
+    private EditText etName, etBirthDate;
+    private RadioGroup rgGroup;
+    private SeekBar sbAge;
+    private TextView tvAgeValue;
+
+    // Ключи для SharedPreferences
+    private static final String PREF_NAME = "StudentPrefs";
+    private static final String KEY_NAME = "student_name";
+    private static final String KEY_GROUP = "student_group";
+    private static final String KEY_AGE = "student_age";
+    private static final String KEY_BIRTH = "student_birth";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Инициализация элементов
+        etName = findViewById(R.id.etName);
+        etBirthDate = findViewById(R.id.etBirthDate);
+        rgGroup = findViewById(R.id.rgGroup);
+        sbAge = findViewById(R.id.sbAge);
+        tvAgeValue = findViewById(R.id.tvAgeValue);
+
+        // Отображение текущего значения возраста
+        sbAge.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                tvAgeValue.setText(String.valueOf(progress));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+
+        // Восстанавливаем данные при запуске
+        restoreData();
+    }
+
+    // Сохранение данных в SharedPreferences
+    private void saveData() {
+        SharedPreferences sharedPref = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        String name = etName.getText().toString();
+        int selectedGroupId = rgGroup.getCheckedRadioButtonId();
+        String group = "";
+        if (selectedGroupId != -1) {
+            RadioButton selectedRadio = findViewById(selectedGroupId);
+            group = selectedRadio.getText().toString();
+        }
+        int age = sbAge.getProgress();
+        String birthDate = etBirthDate.getText().toString();
+
+        editor.putString(KEY_NAME, name);
+        editor.putString(KEY_GROUP, group);
+        editor.putInt(KEY_AGE, age);
+        editor.putString(KEY_BIRTH, birthDate);
+        editor.apply(); // асинхронное сохранение
+    }
+
+    // Восстановление данных из SharedPreferences
+    private void restoreData() {
+        SharedPreferences sharedPref = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+
+        String name = sharedPref.getString(KEY_NAME, "");
+        String group = sharedPref.getString(KEY_GROUP, "");
+        int age = sharedPref.getInt(KEY_AGE, 18);
+        String birthDate = sharedPref.getString(KEY_BIRTH, "");
+
+        etName.setText(name);
+        etBirthDate.setText(birthDate);
+        sbAge.setProgress(age);
+        tvAgeValue.setText(String.valueOf(age));
+
+        // Установка выбранной группы
+        if (!group.isEmpty()) {
+            if (group.equals("ИС-31")) rgGroup.check(R.id.rbGroup1);
+            else if (group.equals("ИС-32")) rgGroup.check(R.id.rbGroup2);
+            else if (group.equals("ИС-33")) rgGroup.check(R.id.rbGroup3);
+        }
+    }
+
+    // Доп. задание №1: автосохранение при остановке приложения
+    @Override
+    protected void onStop() {
+        super.onStop();
+        saveData();
+    }
+
+    // Доп. задание №1: восстановление при возобновлении (хотя в onCreate уже есть, продублируем для onStart)
+    @Override
+    protected void onStart() {
+        super.onStart();
+        restoreData();
+    }
+}
+
